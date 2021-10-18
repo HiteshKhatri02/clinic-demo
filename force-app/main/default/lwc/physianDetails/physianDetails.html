@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : Hitesh Khatri
+  @group             : 
+  @last modified on  : 10-18-2021
+  @last modified by  : Hitesh Khatri
+-->
+<template>
+    <template if:true={physianDetails}>
+
+        <template for:each={physianDetails} for:item="physian" role="listbox">
+            <diV key={physian.id} data-id={physian.id} onclick={handleRowItemClick} >
+                <div if:false={physian.selectedItem} class="slds-border_top slds-border_bottom">
+                    <c-physian-detail detail-of-physisan={physian}   class="slds-var-p-around_medium"></c-physian-detail>
+                </div>
+                <div if:true={physian.selectedItem} class="slds-border_top slds-border_bottom selected-item">
+                    <c-physian-detail detail-of-physisan={physian} class="slds-var-p-around_medium"></c-physian-detail>
+                </div>
+            </diV>
+        </template>
+
+        
+
+    </template>
+</template>

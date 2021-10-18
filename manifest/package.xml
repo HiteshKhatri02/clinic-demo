@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
+	<!--<types>
 		<members>Clinic_Application</members>
 		<name>CustomApplication</name>
 	</types>
@@ -22,6 +22,20 @@
 		<members>Contact-Physician Layout</members>
 		<members>Department__c-Department Layout</members>
 		<name>Layout</name>
-	</types>
+	</types> -->
+	<types>
+	 <members>AbstractJsonObject</members>
+        <members>GoogleCalendar</members>
+        <members>GoogleCalendarAcl</members>
+        <members>GoogleCalendarEvent</members>
+        <members>GoogleCalendarList</members>
+        <members>GoogleCalendarService</members>
+        <members>GoogleOAuth</members>
+        <members>GoogleServiceException</members>
+        <members>GoogleServiceV3</members>
+        <members>GoogleUser</members>
+        <members>JWT</members>
+        <members>SignServer</members>
+        <name>ApexClass</name></types>
 	<version>51.0</version>
 </Package>

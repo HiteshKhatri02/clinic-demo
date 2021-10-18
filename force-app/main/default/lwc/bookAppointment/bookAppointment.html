@@ -1,0 +1,34 @@
+<!--
+@description       : 
+@author            : Hitesh Khatri
+@group             : 
+@last modified on  : 10-19-2021
+@last modified by  : Hitesh Khatri
+-->
+<template>
+  <lightning-card>
+
+  
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_4-of-12">
+      <c-sidebar onnavigationevent={handleNavigationEvent}></c-sidebar>
+    </div>
+    <div class="slds-col slds-size_8-of-12">
+      <template if:true={navigationsTabs.isVisiblePateintInformation}>
+        <c-patient-information patient-information={bookAppointment.patientInformation} onpatientinfosaved={handlePatientSavedEvent}></c-patient-information>
+      </template>
+
+      <template if:true={navigationsTabs.isVisibleAppointmentBooking}>
+        <c-available-appointments appointment-detail={bookAppointment.appointmentDetails} onappointmentcreated={handleAppointmentCreation}></c-available-appointments>
+      </template>
+
+      <template if:true={navigationsTabs.isVisibleConfirmation}>
+        <c-confirm-appointment booking-number={appointmentNumber}></c-confirm-appointment>
+      </template>
+      
+     
+      
+    </div>
+  </div>
+</lightning-card>
+</template>

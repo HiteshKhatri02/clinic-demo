@@ -1,0 +1,45 @@
+<!--
+@description       : 
+@author            : Hitesh Khatri
+@group             : 
+@last modified on  : 10-18-2021
+@last modified by  : Hitesh Khatri
+-->
+<template>
+    <template if:true={loadComponent}>
+
+        <lightning-layout name="" multiple-rows="false" class={listItemClass}>
+            <lightning-layout-item size="1">
+                <lightning-avatar class="image" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg">
+                </lightning-avatar>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="11">
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item horizontal-align={horizontalAlign} size="12" style="font-weight: bold;">
+                        <lightning-formatted-text value={physianDetail.name}></lightning-formatted-text>
+                    </lightning-layout-item>
+        
+                    <lightning-layout-item if:true={loadComponent} size="12">
+                        <ul id="availableDays">
+                            <li class="workingDayLabel">Available : </li>
+                            <template for:each={physianDetail.availablDaysArray} for:item="day">
+                                <li key={day} class="listItem">{day}</li>
+                            </template>
+                        </ul>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item if:true={loadComponent} size="12">
+                        <ul id="timing">
+                            <li class="workingDayLabel">From : </li>
+                            <li class="listItem">{physianDetail.startTime}</li>
+                            <li class="workingDayLabel">To : </li>
+                            <li class="listItem">{physianDetail.endTime}</li>
+                        </ul>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+   
+    </template>
+</template>

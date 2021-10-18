@@ -1,0 +1,16 @@
+.listItem{
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.workingDayLabel{
+    display: inline-block;
+    margin-right: 4px;
+    font-weight: bold;
+
+}
+
+.image{
+    width: 4rem;
+    height: 4rem;
+}

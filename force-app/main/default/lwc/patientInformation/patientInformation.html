@@ -1,0 +1,119 @@
+<!--
+  @description       : 
+  @author            : Hitesh Khatri
+  @group             : 
+  @last modified on  : 10-19-2021
+  @last modified by  : Hitesh Khatri
+-->
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            Patient Information
+        </h3>
+        <div slot="footer">
+            <lightning-button variant="brand" label="Next" title="Next" onclick={handleNext}
+                class="slds-var-m-left_x-small slds-float_right"></lightning-button>
+        </div>
+        <div>
+            <template if:true={showSpinner}>
+                <div class="demo-only demo--inverse" style="height:6rem;background-color:#16325c;position:relative">
+                    <div class="slds-spinner_container">
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <lightning-layout horizontal-align={horizontalAlign} multiple-rows="true">
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12"
+                    padding="around-small">
+                    <lightning-layout horizontal-align={horizontalAlign} multiple-rows="true">
+    
+                        <lightning-layout-item size="6" small-device-size="12" medium-device-size="12"
+                            large-device-size="6">
+                            <lightning-combobox name="salutation" label="Salutation" data-id="pSalutation"
+                                value={patientRecordInfo.salutation} onchange={onChangeHandler}
+                                placeholder="Select Salutation" options={salutationsList}></lightning-combobox>
+                        </lightning-layout-item>
+                    </lightning-layout>
+    
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6"
+                    padding="around-small">
+    
+                    <lightning-input type="text" label="First Name" value={patientRecordInfo.firstName} data-id="pfirstName"
+                        max-length="40" onchange={onChangeHandler}></lightning-input>
+    
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="text" label="Last Name" value={patientRecordInfo.lastName} data-id="pLastName"
+                        required="true" max-length="80" onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="date" label="Date of Birth" value={patientRecordInfo.dob} data-id="pDOB"
+                        required="true" onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="email" label="Email" value={patientRecordInfo.email} data-id="pEmail"
+                        onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="phone" label="Phone" value={patientRecordInfo.phone} required="true"
+                        data-id="pPhone" max-length="10" onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12"
+                    padding="around-small">
+                    <lightning-input type="text" label="Street Address" value={patientRecordInfo.mailingStreet}
+                        data-id="pStreetAddress"></lightning-input>
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    data-id="pMailingCity" padding="around-small">
+                    <lightning-input type="text" label="City" value={patientRecordInfo.mailingCity}
+                        onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="text" label="State/Province" value={patientRecordInfo.mailingState}
+                        data-id="pMailingState"></lightning-input>
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="text" label="Country" value={patientRecordInfo.mailingCountry} data-id="pCountry"
+                        onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="6"
+                    padding="around-small">
+                    <lightning-input type="text" label="Zip Code" value={patientRecordInfo.mailingZipCode}
+                        data-id="pMailingZipCode" onchange={onChangeHandler}></lightning-input>
+                </lightning-layout-item>
+    
+            </lightning-layout>
+        </div>
+      
+
+
+    </lightning-card>
+</template>

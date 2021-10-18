@@ -1,0 +1,18 @@
+<!--
+  @description       : 
+  @author            : Hitesh Khatri
+  @group             : 
+  @last modified on  : 10-19-2021
+  @last modified by  : Hitesh Khatri
+-->
+<template>
+        <div style="width: 320px;">
+            <lightning-vertical-navigation selected-item={selectedItem}>
+                <lightning-vertical-navigation-section label="Book Appointment">
+                    <lightning-vertical-navigation-item diabled="true" label="Patient Information" name="pateintInformation" data-navigatepage="pateintInformation" onclick={onNavigationBarClicked}></lightning-vertical-navigation-item>
+                    <lightning-vertical-navigation-item label="Available Appointments" name="availableAppointment" data-navigatepage="availableAppointment" onclick={onNavigationBarClicked}></lightning-vertical-navigation-item>
+                    <lightning-vertical-navigation-item label="Confirmation" name="confirmation" data-navigatepage="confirmation" onclick={onNavigationBarClicked}></lightning-vertical-navigation-item>
+                </lightning-vertical-navigation-section>
+            </lightning-vertical-navigation>
+        </div>
+</template>
