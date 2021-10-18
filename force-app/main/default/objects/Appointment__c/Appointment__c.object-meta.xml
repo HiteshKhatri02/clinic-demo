@@ -155,9 +155,10 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Appointment</label>
     <nameField>
+        <displayFormat>A-{0000000}</displayFormat>
         <label>Appointment Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Appointments</pluralLabel>
     <searchLayouts></searchLayouts>

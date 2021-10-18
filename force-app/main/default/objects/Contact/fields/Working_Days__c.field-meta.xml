@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Working_Days__c</fullName>
     <externalId>false</externalId>
+    <inlineHelpText>Working days in the week</inlineHelpText>
     <label>Working Days</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
@@ -11,39 +12,39 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Sunday</fullName>
+                <fullName>Sun</fullName>
                 <default>false</default>
-                <label>Sunday</label>
+                <label>Sun</label>
             </value>
             <value>
-                <fullName>Monday</fullName>
+                <fullName>Mon</fullName>
                 <default>false</default>
-                <label>Monday</label>
+                <label>Mon</label>
             </value>
             <value>
-                <fullName>Tuesday</fullName>
+                <fullName>Tue</fullName>
                 <default>false</default>
-                <label>Tuesday</label>
+                <label>Tue</label>
             </value>
             <value>
-                <fullName>Wednesday</fullName>
+                <fullName>Wed</fullName>
                 <default>false</default>
-                <label>Wednesday</label>
+                <label>Wed</label>
             </value>
             <value>
-                <fullName>Thursday</fullName>
+                <fullName>Thur</fullName>
                 <default>false</default>
-                <label>Thursday</label>
+                <label>Thur</label>
             </value>
             <value>
-                <fullName>Friday</fullName>
+                <fullName>Fri</fullName>
                 <default>false</default>
-                <label>Friday</label>
+                <label>Fri</label>
             </value>
             <value>
-                <fullName>Saturday</fullName>
+                <fullName>Sat</fullName>
                 <default>false</default>
-                <label>Saturday</label>
+                <label>Sat</label>
             </value>
         </valueSetDefinition>
     </valueSet>

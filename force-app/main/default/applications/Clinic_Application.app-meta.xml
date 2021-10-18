@@ -12,6 +12,8 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Clinic Application</label>
     <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>Book_Appointment</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>Department__c</tabs>

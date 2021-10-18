@@ -78,6 +78,14 @@
                 <behavior>Edit</behavior>
                 <field>Max_Appointment__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Booked_Appointments__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Remaining_Appointments__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -413,6 +421,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Appointment_Slot__c.Physician__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Appointment__c.Physician__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
