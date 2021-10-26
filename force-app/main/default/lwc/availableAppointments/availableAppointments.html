@@ -2,19 +2,17 @@
   @description       : 
   @author            : Hitesh Khatri
   @group             : 
-  @last modified on  : 10-18-2021
+  @last modified on  : 10-26-2021
   @last modified by  : Hitesh Khatri
 -->
 <template>
 
   <template if:true={showSpinner}>
-    <div class="demo-only demo--inverse" style="height:6rem;background-color:#16325c;position:relative">
-        <div class="slds-spinner_container">
-          <div role="status" class="slds-spinner slds-spinner_medium">
-            <span class="slds-assistive-text">Loading</span>
-            <div class="slds-spinner__dot-a"></div>
-            <div class="slds-spinner__dot-b"></div>
-          </div>
+      <div class="slds-spinner_container">
+        <div role="status" class="slds-spinner slds-spinner_medium">
+          <span class="slds-assistive-text">Loading</span>
+          <div class="slds-spinner__dot-a"></div>
+          <div class="slds-spinner__dot-b"></div>
         </div>
       </div>
   </template>

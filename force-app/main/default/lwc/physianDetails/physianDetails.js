@@ -1,5 +1,8 @@
 import { LightningElement, api, track } from 'lwc';
 import getPhysians from '@salesforce/apex/AvailableAppoinmentsController.getPhysians';
+import {
+    ShowToastEvent
+} from 'lightning/platformShowToastEvent';
 
 export default class PhysianDetails extends LightningElement {
     
@@ -7,6 +10,7 @@ export default class PhysianDetails extends LightningElement {
     @api departmentId;
     @api mouseIsOver;
     selectedRowId;
+    showSpinner = false;
 
 
     connectedCallback(){
@@ -15,13 +19,20 @@ export default class PhysianDetails extends LightningElement {
 
    @api onChangeDepartment(departmentId){
         if(departmentId){
+            this.showSpinner = true;
             getPhysians({ departmentId : departmentId }).then(result => {
-                this.physianDetails = result;
-                this.physianDetails.forEach(element => {
-                    element.selectedItem = false;
-                });
+                this.showSpinner = false;
+                if(result.length > 0){
+                    this.physianDetails = result;
+                    this.physianDetails.forEach(element => {
+                        element.selectedItem = false;
+                    });
+                }
+                
             }).catch(error => {
-                console.error('Error : ' + error);
+                this.showSpinner = false;
+                this.showAsyncErrorMessage(error);
+               
             });
         }
    }
@@ -48,6 +59,17 @@ export default class PhysianDetails extends LightningElement {
        
    }
 
+   showAsyncErrorMessage(component, err) {
+    let message = (err) ? ((err.message) ? err.message : ((err.body) ? ((err.body.message) ? err.body.message : JSON.stringify(err)) : JSON.stringify(err))) : "Something went wrong!";
+   
+    component.dispatchEvent(new ShowToastEvent({
+        mode : 'pester',
+        title: 'Error',
+        message: message,
+        variant: 'error',
+    }));
+   
+}
 
 
 }
