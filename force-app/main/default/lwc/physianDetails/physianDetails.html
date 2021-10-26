@@ -2,7 +2,7 @@
   @description       : 
   @author            : Hitesh Khatri
   @group             : 
-  @last modified on  : 10-18-2021
+  @last modified on  : 10-25-2021
   @last modified by  : Hitesh Khatri
 -->
 <template>
@@ -22,4 +22,9 @@
         
 
     </template>
+
+    <template if:false={physianDetails}>
+        There is no physians available in selected departments.
+    </template>
+
 </template>

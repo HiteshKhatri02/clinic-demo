@@ -2,10 +2,13 @@
  * @description       : 
  * @author            : Hitesh Khatri
  * @group             : 
- * @last modified on  : 10-19-2021
+ * @last modified on  : 10-25-2021
  * @last modified by  : Hitesh Khatri
 **/
 public with sharing class DAO_Contact {
+
+    private static final Id PATIENT_INFO_RECORD_TYPE_ID = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Patient')?.getRecordTypeId(); 
+    private static final Id PHYSIAN_INFO_RECORD_TYPE_ID = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Physician')?.getRecordTypeId(); 
 
     /**
     * @description 
@@ -42,7 +45,8 @@ public with sharing class DAO_Contact {
         return [SELECT Id, Name, Start_Time__c, End_Time__c, Max_Appointment__c, Working_Days__c FROM Contact WHERE RecordType.DeveloperName = 'Physician' AND Department__c = :departmentId AND CreatedDate < :firstReturnedCreatedDate WITH SECURITY_ENFORCED ORDER BY CreatedDate LIMIT 5];
     }
 
-    private static final Id Patient_Infor_RecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('Patient')?.getRecordTypeId(); 
+    
+    
     public static List<contact> getDuplicateContact(Contact notInsertedCon){
         String firstName = notInsertedCon.firstName;
         String lastName = notInsertedCon.lastName;
@@ -65,5 +69,10 @@ public with sharing class DAO_Contact {
         query += 'WITH SECURITY_ENFORCED LIMIT 1 ';
         return Database.query(query);
     }
+
+    public static List<Contact> getPhysianDetail(String recordId){
+        return [SELECT Id, Name, Email FROM Contact WHERE Id = :recordId AND RecordTypeId = :PHYSIAN_INFO_RECORD_TYPE_ID WITH SECURITY_ENFORCED LIMIT 1];
+    }
+
     
 }

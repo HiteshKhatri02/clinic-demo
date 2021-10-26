@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Hitesh Khatri
  * @group             : 
- * @last modified on  : 10-19-2021
+ * @last modified on  : 10-25-2021
  * @last modified by  : Hitesh Khatri
 **/
 public with sharing class AvailableAppoinmentsController {
@@ -31,7 +31,8 @@ public with sharing class AvailableAppoinmentsController {
     public static List<PhysianWrapper> getPhysians(String departmentId){
         
         try {
-           return PhysianServices.getPhysians(departmentId);
+            PhysianServices ps = new PhysianServices();
+           return ps.getPhysians(departmentId);
             
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -44,6 +45,7 @@ public with sharing class AvailableAppoinmentsController {
             AppointmentServices appServices = new AppointmentServices();
             String result = appServices.createAppointment(jsonString);
             System.debug('Appointment Name : '+result);
+            //send calendar invites
             return result;
            
             
